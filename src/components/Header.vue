@@ -1,9 +1,8 @@
 <template>
     <header>
         <h1> {{ title }} </h1>
-        <Button @btn-click="$emit('toggle-add-task')" 
-        :text="showAddTasks ? 'Close' : 'Add Task'" 
-        :color="showAddTasks ? 'red' : 'green'" />
+        <Button v-show="homePage" @btn-click="$emit('toggle-add-task')" :text="showAddTasks ? 'Close' : 'Add Task'"
+            :color="showAddTasks ? 'red' : 'green'" />
     </header>
 </template>
  
@@ -20,15 +19,25 @@ export default {
         Button,
     },
 
-    // if default is needed:
-    /* props: {
-        title:{
-            type: String,
-            default: 'Hello world'
-        }
-    } */
+    computed: {
+        homePage() {
+            if (this.$route.path === '/') {
+                return true
+            } else {
+                return false
+            }
+        },
+    }
 
-}
+        // if default is needed:
+        /* props: {
+            title:{
+                type: String,
+                default: 'Hello world'
+            }
+        } */
+
+    }
 </script>
 
 <style scoped>
