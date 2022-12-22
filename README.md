@@ -1,5 +1,10 @@
 # vue-crash-course
 
+## Start the backend:
+```
+npm run backend
+```
+
 ## Project setup
 ```
 npm install
